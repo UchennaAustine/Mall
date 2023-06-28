@@ -86,3 +86,14 @@ export const updateProduct = async (req: Request, res: Response) => {
     return res.status(500).json(error.message);
   }
 };
+
+export const deleteProduct = async (req: Request, res: Response) => {
+    try {
+      const product = await MallModel.findByIdAndDelete(req.params.productID);
+      return res.status(200).json({
+        message: "SuccessFully Deleted Single Product"
+      });
+    } catch (error: any) {
+      return res.status(500).json(error.message);
+    }
+}
