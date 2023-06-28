@@ -20,3 +20,7 @@ const Server = async () => {
 
 //Server Initialization
 Server();
+
+process.on("uncaughtException",(error: any)=>{
+  console.log("uncaughtException error:",error.message)
+})

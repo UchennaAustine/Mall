@@ -5,8 +5,8 @@ import { MallModel } from "../Model/MallModel";
 export const viewAllProducts = async(req: Request, res: Response)=>{
     try {
         const products = await MallModel.find()
-        if(!products){
-            res.status(200).json({
+        if(products.length >= 0){
+            res.status(404).json({
                 message: "No Available Products For Now",
                })
         }
@@ -21,7 +21,7 @@ export const viewAllProducts = async(req: Request, res: Response)=>{
 
 export const viewSingleProduct = async (req: Request, res: Response)=>{
     try {
-        const product = await MallModel.findById(req.params.productId)
+        const product = await MallModel.findById(req.params.productID)
         if(!product){
             return res.status(200).json({
                 message: "This Product is Out Of Stock for Now",
