@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from "express"
-import { viewAllProducts, viewSingleProduct } from "../Controller/MallController"
+import { stockProducts, viewAllProducts, viewSingleProduct } from "../Controller/MallController"
 
 export const router = Router()
 
@@ -10,3 +10,4 @@ router.get("/Mall", (req: Request, res:Response)=>{
 })
 router.get("/viewAllProducts",viewAllProducts)
 router.get("/viewSingleProduct/:productID",viewSingleProduct)
+router.post("/stockproducts",stockProducts)
